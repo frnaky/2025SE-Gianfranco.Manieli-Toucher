@@ -11,12 +11,12 @@ void setup() {
 void loop() {
     matrix.beginDraw();
     matrix.stroke(0xFFFFFFFF);
-    matrix.textScrollSpeed(25);
+    matrix.textScrollSpeed(50);
 
-    const char text[] = " v0.01";
+    const char text[] = " v0.0.9";
     matrix.textFont(Font_5x7);
     matrix.beginText(0, 1, 0xFFFFFF);
-    matrix.println(text)  
+    matrix.println(text); 
     matrix.endText(SCROLL_LEFT);
     matrix.end();
 }
