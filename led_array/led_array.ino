@@ -16,7 +16,7 @@ void loop() {
     const char text[] = " v0.01";
     matrix.textFont(Font_5x7);
     matrix.beginText(0, 1, 0xFFFFFF);
-    matrix.println(text);
+    matrix.println(text)  
     matrix.endText(SCROLL_LEFT);
     matrix.end();
 }
