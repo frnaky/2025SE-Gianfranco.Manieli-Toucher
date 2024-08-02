@@ -6,7 +6,7 @@
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 ArduinoLEDMatrix matrix;
-
+Servo myServo;
 
 int potpin = 0;
 int val;
@@ -25,6 +25,8 @@ void setup(void) {
   } else {
     Serial.println("sensot not found");
   }
+  myservo.attach(9);
+  myservo.write(90);
 }
 
 void loop(void) {
@@ -41,10 +43,20 @@ void loop(void) {
   matrix.beginDraw();
   matrix.stroke(0xFFFFFFFF);
   matrix.textScrollSpeed(25);
-  const char text[] = " v0.01";
+  const char text[] = " v0.0.1";
   matrix.textFont(Font_5x7);
   matrix.beginText(0, 1, 0xFFFFFF);
   matrix.println(text);  
   matrix.endText(SCROLL_LEFT);
   matrix.end();
+
+  for (pos = 0; pos <= 180; pos += 1) {
+    myservo.write(pos);
+    delay(15);
+  }
+  for (pos = 180; pos >= 0; pos -= 1) {
+    myservo.write(pos); 
+    delay(15);
+  }
+  
 }
