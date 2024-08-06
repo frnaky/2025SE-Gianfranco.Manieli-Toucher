@@ -1,13 +1,17 @@
 #ifndef LED_ARRAY_H
 #define LED_ARRAY_H
 
-class led_array {
+#include <ArduinoGraphics.h>
+#include "Arduino_LED_Matrix.h"
 
+class led_array {
 private:
+  ArduinoLEDMatrix matrix;
 
 public:
-  led_array() {}
-  byte version_number;
-  void update_version_number;
-  void change_display;
-}
+  led_array();
+  void setup()
+  void loop();
+};
+
+#endif 

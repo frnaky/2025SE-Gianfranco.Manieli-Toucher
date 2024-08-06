@@ -1,22 +1,11 @@
-#include <ArduinoGraphics.h>
-#include "Arduino_LED_Matrix.h"
+#include "claw.h"
 
-ArduinoLEDMatrix matrix;
+led_array display;
 
 void setup() {
-    Serial.begin(9600);
-    matrix.begin(); 
+    display.setup();
 }
 
 void loop() {
-    matrix.beginDraw();
-    matrix.stroke(0xFFFFFFFF);
-    matrix.textScrollSpeed(50);
-
-    const char text[] = " v0.0.9";
-    matrix.textFont(Font_5x7);
-    matrix.beginText(0, 1, 0xFFFFFF);
-    matrix.println(text); 
-    matrix.endText(SCROLL_LEFT);
-    matrix.end();
+    display.loop();
 }
