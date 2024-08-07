@@ -1,3 +1,7 @@
 #include "myServo.h"
 
-MyServo::
+MyServo()::MyServo()
+
+void MyServo::setup(){
+    
+}

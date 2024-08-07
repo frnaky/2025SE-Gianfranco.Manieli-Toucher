@@ -1,4 +1,5 @@
 #include "ultra_test.h"
+#include <Arduino.h>
 
 void setup() {
   pinMode(trigPin, OUTPUT);
