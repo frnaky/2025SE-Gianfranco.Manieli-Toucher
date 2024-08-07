@@ -1,4 +1,4 @@
-#include "claw.h"
+#include "led_array.h"
 
 led_array display;
 

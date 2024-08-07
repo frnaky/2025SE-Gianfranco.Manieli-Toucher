@@ -10,7 +10,7 @@ private:
 
 public:
   led_array();
-  void setup()
+  void setup();
   void loop();
 };
 
