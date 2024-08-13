@@ -2,14 +2,9 @@
 #include <Arduino.h>
 
 void setup() {
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-  Serial.begin(9600);
+  ultra.setup()
 }
 
 void loop() {
-  long duration = measureDuration();
-  int distance = calculateDistance(duration);
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  ultra.loop()
 }
