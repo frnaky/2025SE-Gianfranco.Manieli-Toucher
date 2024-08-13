@@ -1,6 +1,7 @@
 #include <Servo.h>
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
+#include "rcs.solution.h"
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 
@@ -16,14 +17,7 @@ long duration;
 int distance;
 
 void setup(void) {
-  Serial.begin(9600);
-  myservo.attach(9); //attach servo to pin 9
-  if (tcs.begin()) {
-    Serial.println("sensor detected");
-  } else {
-    Serial.println("sensot not found");
-    while (1);
-  }
+  tcs.setup()
 }
 
 void loop(void) {
