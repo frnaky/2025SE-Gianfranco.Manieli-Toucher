@@ -6,11 +6,11 @@
 
 class MyServo {
 private:
-    Servo servo;
     int pos;
+    Servo servo; // Add a Servo object
 
 public:
-    MyServo();
+    MyServo();    
     void setup();
     void loop();
 };
