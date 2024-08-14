@@ -14,6 +14,7 @@ class ColorSensor {
     uint16_t getGreen();
     uint16_t getBlue();
     void printColor();
+    boolean begin(uint8_t addr = TCS34725_ADDRESS, TwoWire *theWire = &Wire);
 
   private:
     Adafruit_TCS34725 tcs;
