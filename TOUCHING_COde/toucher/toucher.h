@@ -31,19 +31,17 @@ public:
 
 class ultra {
 private:
+    long measureDuration();
+    int calculateDistance(long duration);
 public:
     const int trigPin = 9;
     const int echoPin = 10;
-    long measureDuration();
-    int calculateDistance(long duration);
+    long duration;
+    int distance;
 };
 
 
 class rcs {
-private:
-    Adafruit_TCS34725 tcs;
-    uint16_t r, g, b;
-
 public:
     ColorSensor();
     void begin();
@@ -52,12 +50,23 @@ public:
     uint16_t getGreen();
     uint16_t getBlue();
     void printColor();
-    boolean begin(uint8_t addr = TCS34725_ADDRESS, TwoWire *theWire = &Wire);
+protected:
+    uint16_t r, g, b;
+    Adafruit_TCS34725 tcs;
+};
+
+class domcolour : public rcs {
+  public:
+    domcolour(int threshold = 100);
+    const char* getDominantColor();
+  
+  private:
+    int threshold; //this is basically saying what miimum values i will detect
 };
 
 class servo {
 private:
-    int pos;
+    int pos = 0;
 
 public:
     MyServo();    

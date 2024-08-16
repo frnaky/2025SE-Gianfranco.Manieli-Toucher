@@ -15,6 +15,7 @@
 // toucher
 
 // led
+
 led_array::led_array() : matrix() {}
 
 void led_array::setup() {
@@ -35,6 +36,7 @@ void led_array::loop() {
 }
 
 // ultra
+
 long measureDuration() {
     digitalWrite(trigPin, LOW);
     delayMicroseconds(2);
@@ -62,7 +64,10 @@ ultra::loop() {
 }
 
 // rcs
-void ColorSensor::init() {
+
+rcs::rcs() : tcs(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X) {}
+
+void rcs::init() {
   if (tcs.begin()) {
     Serial.println("colour sensor detect");
   } else {
@@ -71,23 +76,23 @@ void ColorSensor::init() {
   }
 }
 
-void ColorSensor::readColor() {
+void rcs::readColor() {
   tcs.getRawData(&r, &g, &b, nullptr);
 }
 
-uint16_t ColorSensor::getRed() {
+uint16_t rcs::getRed() {
   return r;
 }
 
-uint16_t ColorSensor::getGreen() {
+uint16_t rcs::getGreen() {
   return g;
 }
 
-uint16_t ColorSensor::getBlue() {
+uint16_t rcs::getBlue() {
   return b;
 }
 
-void ColorSensor::printColor() {
+void rcs::printColor() {
   Serial.print("Red: ");
   Serial.print(r);
   Serial.print(" Green: ");
@@ -96,13 +101,30 @@ void ColorSensor::printColor() {
   Serial.println(b);
 }
 
+domcolour::domcolour(int thresholdValue) : threshold(thresholdValue) {}
+
+const char* domcolour::getDominantColor() {
+  if (r < threshold && g < threshold && b < threshold) { //if value too low then rgb not exist
+    return "rgb value too low";
+  }
+
+  if (r > g && r > b) {
+    return "red";
+  } else if (g > r && g > b) {
+    return "green";
+  } else if (b > r && b > g) {
+    return "blue";
+  } else {
+    return "wronggg idiot haha";
+  }
+
 //servo
-void MyServo::setup() {
+void myservo::setup() {
     Serial.begin(9600);
     servo.attach(9); // Attach the servo to pin 9
 }
 
-void MyServo::loop() {
+void myservo::loop() {
     for (pos = 0; pos <= 180; pos += 1) {
         servo.write(pos); // Use the servo object to write the position
         delay(15);
