@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
+#include <iostream>22
 
 ColorSensor::ColorSensor() : tcs(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X) {}
 
@@ -37,4 +38,16 @@ void ColorSensor::printColor() {
   Serial.print(g);
   Serial.print(" Blue: ");
   Serial.println(b);
+}
+
+std::string getDominantColor(int r, int g, int b) {
+    if (r > g && r > b) {
+        return "Red";
+    } else if (g > r && g > b) {
+        return "Green";
+    } else if (b > r && b > g) {
+        return "Blue";
+    } else {
+        return "No dominant color";
+    }
 }

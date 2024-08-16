@@ -7,7 +7,6 @@
 class MyServo {
 private:
     int pos;
-    Servo servo; // Add a Servo object
 
 public:
     MyServo();    

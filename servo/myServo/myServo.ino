@@ -1,5 +1,6 @@
 #include "myServo.h"
 
+Servo servo;
 MyServo myServo;
 
 void setup() {

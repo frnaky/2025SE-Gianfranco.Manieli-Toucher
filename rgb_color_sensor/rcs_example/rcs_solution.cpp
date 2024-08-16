@@ -36,3 +36,15 @@ void ColorSensor::printColor() {
   Serial.print(" Blue: ");
   Serial.println(b);
 }
+
+std::string getDominantColor(int r, int g, int b) {
+    if (r > g && r > b) {
+        return "Red";
+    } else if (g > r && g > b) {
+        return "Green";
+    } else if (b > r && b > g) {
+        return "Blue";
+    } else {
+        return "No dominant color";
+    }
+}
