@@ -22,7 +22,7 @@ void loop(void) {
 // all for color, output domcolor
   colorSensor.readColor();
   const char* dominantColor = colorSensor.getDominantColor();
+//use dominantColor for choosing color
   Serial.println(dominantColor);
   delay (1000);
-  
 }
