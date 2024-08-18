@@ -17,7 +17,7 @@
 
 class toucher {
 
-}
+};
 
 class led_array {
 private:
@@ -36,15 +36,15 @@ private:
 public:
     const int trigPin = 9;
     const int echoPin = 10;
-    long duration;
-    int distance;
+    void setup();
+    void loop();
 };
 
 
 class rcs {
 public:
-    ColorSensor();
-    void begin();
+    rcs();
+    void setup();
     void readColor();
     uint16_t getRed();
     uint16_t getGreen();
@@ -67,9 +67,10 @@ class domcolour : public rcs {
 class servo {
 private:
     int pos = 0;
+    Servo servo;
 
 public:
-    MyServo();    
+    myservo();    
     void setup();
     void loop();
 };

@@ -67,7 +67,7 @@ ultra::loop() {
 
 rcs::rcs() : tcs(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X) {}
 
-void rcs::init() {
+void rcs::setup() {
   if (tcs.begin()) {
     Serial.println("colour sensor detect");
   } else {
@@ -93,11 +93,11 @@ uint16_t rcs::getBlue() {
 }
 
 void rcs::printColor() {
-  Serial.print("Red: ");
+  Serial.print("red: ");
   Serial.print(r);
-  Serial.print(" Green: ");
+  Serial.print(" green: ");
   Serial.print(g);
-  Serial.print(" Blue: ");
+  Serial.print(" blue: ");
   Serial.println(b);
 }
 
@@ -119,8 +119,10 @@ const char* domcolour::getDominantColor() {
   }
 
 //servo
+
+myservo::myservo() {}
+
 void myservo::setup() {
-    Serial.begin(9600);
     servo.attach(9); // Attach the servo to pin 9
 }
 

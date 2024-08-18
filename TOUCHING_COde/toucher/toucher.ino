@@ -1,6 +1,7 @@
 #include <Adafruit_TCS34725.h>
 #include <Wire.h>
 #include <Servo.h>
+#include "toucher.h"
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 
@@ -9,10 +10,14 @@ domcolour colorSensor;
 
 void setup(void) {
   Serial.begin(9600);
-  led_array.setup()
-  ultra.setup()
-  rcs.setup()
-  myservo.setup()
+  led_array led;
+  ultra ultraSensor;
+  rcs colorSensor;
+
+  led.setup();
+  ultraSensor.setup();
+  colorSensor.setup();
+  myservo.attach(9);
 }
 
 void loop(void) {
