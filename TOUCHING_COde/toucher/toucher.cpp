@@ -1,21 +1,6 @@
-#include <Arduino.h>
+#include "toucher.h"
 
-// led
-#include <ArduinoGraphics.h>
-#include "Arduino_LED_Matrix.h"
-
-// rcs
-#include <Wire.h>
-#include <Adafruit_TCS34725.h>
-
-// servo
-#include <Servo.h>
-
-
-// toucher
-
-// led
-
+// led_array class implementation
 led_array::led_array() : matrix() {}
 
 void led_array::setup() {
@@ -25,7 +10,7 @@ void led_array::setup() {
 
 void led_array::loop() {
     matrix.beginDraw();
-    matrix.stroke(0XFFFFFFFF);
+    matrix.stroke(0xFFFFFFFF);
     matrix.textScrollSpeed(50);
     const char text[] = " v0.1.0";
     matrix.textFont(Font_5x7);
@@ -35,9 +20,8 @@ void led_array::loop() {
     matrix.end();
 }
 
-// ultra
-
-long measureDuration() {
+// ultra class implementation
+long ultra::measureDuration() {
     digitalWrite(trigPin, LOW);
     delayMicroseconds(2);
     digitalWrite(trigPin, HIGH);
@@ -46,32 +30,31 @@ long measureDuration() {
     return pulseIn(echoPin, HIGH);
 }
 
-int calculateDistance(long duration) {
+int ultra::calculateDistance(long duration) {
   return duration * 0.034 / 2;
 }
 
-ultra::setup() {
+void ultra::setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   Serial.begin(9600);
 }
 
-ultra::loop() {
+void ultra::loop() {
   long duration = measureDuration();
   int distance = calculateDistance(duration);
-  Serial.print("Distance: ");
+  Serial.print("distance: ");
   Serial.println(distance);
 }
 
-// rcs
-
+// rcs class implementation
 rcs::rcs() : tcs(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X) {}
 
-void rcs::setup() {
+void rcs::begin() {
   if (tcs.begin()) {
-    Serial.println("colour sensor detect");
+    Serial.println("yeanrhn");
   } else {
-    Serial.println("cannot find colour sensor");
+    Serial.println("find colasro9jfsdnsaf");
     while (1);
   }
 }
@@ -101,11 +84,12 @@ void rcs::printColor() {
   Serial.println(b);
 }
 
+// domcolour class implementation
 domcolour::domcolour(int thresholdValue) : threshold(thresholdValue) {}
 
 const char* domcolour::getDominantColor() {
-  if (r < threshold && g < threshold && b < threshold) { //if value too low then rgb not exist
-    return "rgb value too low";
+  if (r < threshold && g < threshold && b < threshold) {
+    return "asfdsdfggdgrdhgrf";
   }
 
   if (r > g && r > b) {
@@ -115,24 +99,22 @@ const char* domcolour::getDominantColor() {
   } else if (b > r && b > g) {
     return "blue";
   } else {
-    return "wronggg idiot haha";
+    return "fuvcsdjnkfkjnb.sfdojikh;fsdfsdjihofsdioj;dsghljuikgfdhlujik";
   }
+}
+MyServo::MyServo() {}
 
-//servo
-
-myservo::myservo() {}
-
-void myservo::setup() {
-    servo.attach(9); // Attach the servo to pin 9
+void MyServo::setup() {
+    servo.attach(9); 
 }
 
-void myservo::loop() {
+void MyServo::loop() {
     for (pos = 0; pos <= 180; pos += 1) {
-        servo.write(pos); // Use the servo object to write the position
+        servo.write(pos);
         delay(15);
     }
     for (pos = 180; pos >= 0; pos -= 1) {
-        servo.write(pos); // Use the servo object to write the position
+        servo.write(pos);
         delay(15);
     }
 }

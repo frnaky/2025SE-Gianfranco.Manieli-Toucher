@@ -12,18 +12,14 @@ void setup(void) {
   Serial.begin(9600);
   led_array led;
   ultra ultraSensor;
-  rcs colorSensor;
 
   led.setup();
   ultraSensor.setup();
-  colorSensor.setup();
+  colorSensor.begin();
   myservo.attach(9);
 }
 
 void loop(void) {
-
-
-
 // all for color, output domcolor
   colorSensor.readColor();
   const char* dominantColor = colorSensor.getDominantColor();

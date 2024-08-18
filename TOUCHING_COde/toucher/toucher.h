@@ -44,7 +44,7 @@ public:
 class rcs {
 public:
     rcs();
-    void setup();
+    void begin();
     void readColor();
     uint16_t getRed();
     uint16_t getGreen();
@@ -64,13 +64,13 @@ class domcolour : public rcs {
     int threshold; //this is basically saying what miimum values i will detect
 };
 
-class servo {
+class MyServo {
 private:
     int pos = 0;
     Servo servo;
 
 public:
-    myservo();    
+    MyServo();    
     void setup();
     void loop();
 };
