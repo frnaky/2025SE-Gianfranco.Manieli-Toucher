@@ -1,11 +1,12 @@
-#ifndef toucher_h
-#define toucher_h
+#ifndef TOUCHER_H
+#define TOUCHER_H
 
 #include <Arduino.h>
 
 // led
 #include <ArduinoGraphics.h>
 #include "Arduino_LED_Matrix.h"
+
 
 // rcs
 #include <Wire.h>
@@ -21,12 +22,13 @@ class toucher {
 
 class led_array {
 private:
-    ArduinoLEDMatrix matrix;
+  ArduinoLEDMatrix matrix;
 
 public:
-    led_array();
-    void setup();
-    void loop();
+  led_array();
+  void setup();
+  void loop();
+
 };
 
 class ultra {
@@ -34,10 +36,10 @@ private:
     long measureDuration();
     int calculateDistance(long duration);
 public:
-    const int trigPin = 9;
-    const int echoPin = 10;
-    void setup();
-    void loop();
+    const int trigPin = A0;
+    const int echoPin = A2;
+    void init();
+    void bend();
 };
 
 
@@ -56,12 +58,12 @@ protected:
 };
 
 class domcolour : public rcs {
-  public:
-    domcolour(int threshold = 100);
-    const char* getDominantColor();
-  
-  private:
-    int threshold; //this is basically saying what miimum values i will detect
+public:
+  domcolour(int threshold = 100);
+  const char* getDominantColor();
+
+private:
+  int threshold; //this is basically saying what miimum values i will detect
 };
 
 class MyServo {
@@ -70,9 +72,9 @@ private:
     Servo servo;
 
 public:
-    MyServo();    
-    void setup();
-    void loop();
+    MyServo();
+    void init();
+    void bend();
 };
 
 #endif

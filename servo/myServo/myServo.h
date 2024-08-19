@@ -7,7 +7,7 @@
 class MyServo {
 private:
     int pos;
-
+    
 public:
     MyServo();    
     void setup();
