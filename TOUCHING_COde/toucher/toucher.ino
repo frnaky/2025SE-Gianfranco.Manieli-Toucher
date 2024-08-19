@@ -5,14 +5,14 @@
 
 // icnlude other headser
 #include "toucher.h"
-//#include "servos.h"
+#include "servos.h"
 #include "led_array.h"
 #include "rcs.h"
 #include "ultra.h"
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 
-//Servo myservo;
+MyServo myservo;
 domcolour colorSensor;
 led_array led;
 ultra ultraSensor;
@@ -22,13 +22,13 @@ void setup(void) {
   led.begin();
   ultraSensor.begin();
   colorSensor.begin();
-  //myservo.attach(9);
+  myservo.begin();
 }
 
 void loop(void) {
   led.bend();
   ultraSensor.bend();
-
+  myservo.bend();
 // all for color, output domcolor
   colorSensor.readColor();
   const char* dominantColor = colorSensor.getDominantColor();

@@ -17,7 +17,6 @@ int ultra::calculateDistance(long duration) {
 void ultra::begin() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  Serial.begin(9600);
 }
 
 void ultra::bend() {
