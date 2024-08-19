@@ -1,80 +1,10 @@
-#ifndef TOUCHER_H
-#define TOUCHER_H
+#ifndef toucher_h
+#define toucher_h
 
 #include <Arduino.h>
 
-// led
-#include <ArduinoGraphics.h>
-#include "Arduino_LED_Matrix.h"
-
-
-// rcs
-#include <Wire.h>
-#include <Adafruit_TCS34725.h>
-
-// servo
-#include <Servo.h>
-
-
 class toucher {
-
 };
 
-class led_array {
-private:
-  ArduinoLEDMatrix matrix;
-
-public:
-  led_array();
-  void setup();
-  void loop();
-
-};
-
-class ultra {
-private:
-    long measureDuration();
-    int calculateDistance(long duration);
-public:
-    const int trigPin = A0;
-    const int echoPin = A2;
-    void init();
-    void bend();
-};
-
-
-class rcs {
-public:
-    rcs();
-    void begin();
-    void readColor();
-    uint16_t getRed();
-    uint16_t getGreen();
-    uint16_t getBlue();
-    void printColor();
-protected:
-    uint16_t r, g, b;
-    Adafruit_TCS34725 tcs;
-};
-
-class domcolour : public rcs {
-public:
-  domcolour(int threshold = 100);
-  const char* getDominantColor();
-
-private:
-  int threshold; //this is basically saying what miimum values i will detect
-};
-
-class MyServo {
-private:
-    int pos = 0;
-    Servo servo;
-
-public:
-    MyServo();
-    void init();
-    void bend();
-};
 
 #endif
