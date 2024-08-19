@@ -18,3 +18,26 @@ void MyServo::bend() {
         delay(15);
     }
 }
+
+
+void servo0::begin(int servoPin) {
+ myServo::begin(servoPin);
+}
+
+void servo1::begin(int servoPin) {
+  myServo::begin(servoPin);
+}
+
+void servo2::begin(int servoPin) {
+ myServo::begin(servoPin);
+}
+
+void servo3::begin(int servoPin) {
+ myServo::begin(servoPin);
+}
+
+//claw
+void servo4::begin(int servoPin) {
+ myServo::begin(servoPin); 
+}
+
