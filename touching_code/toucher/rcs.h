@@ -1,4 +1,6 @@
 #include <Adafruit_TCS34725.h>
+#include <Wire.h>
+
 #ifndef RCS_H
 #define RCS_H
 

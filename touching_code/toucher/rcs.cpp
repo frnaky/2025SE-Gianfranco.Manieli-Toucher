@@ -5,9 +5,9 @@ rcs::rcs() : tcs(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X) {}
 
 void rcs::begin() {
   if (tcs.begin()) {
-    Serial.println("yeanrhn");
+    Serial.println("rgb color sensor working");
   } else {
-    Serial.println("find colasro9jfsdnsaf");
+    Serial.println("rgb color sensor not found");
     while (1);
   }
 }
@@ -42,7 +42,7 @@ domcolour::domcolour(int thresholdValue) : threshold(thresholdValue) {}
 
 const char* domcolour::getDominantColor() {
   if (r < threshold && g < threshold && b < threshold) {
-    return "asfdsdfggdgrdhgrf";
+    return "rgb values below threshold, no color found";
   }
 
   if (r > g && r > b) {
@@ -52,6 +52,6 @@ const char* domcolour::getDominantColor() {
   } else if (b > r && b > g) {
     return "blue";
   } else {
-    return "fuvcsdjnkfkjnb.sfdojikh;fsdfsdjihofsdioj;dsghljuikgfdhlujik";
+    return "no dominant color found.";
   }
 }

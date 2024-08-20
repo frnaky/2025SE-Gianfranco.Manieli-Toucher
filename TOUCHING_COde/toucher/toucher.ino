@@ -5,6 +5,14 @@
 
 //as of 20/08 i am touching led ultra and color haha
 
+/* to do in class
+make sure led matrix works, and changing led.bend() changes led matrix
+make sure ultrasonic outputs proper distance, and chaning pins in ultraSensor.bend() works
+work on color sensor dominant code, have a look at gammatable
+servo
+*/
+
+
 // icnlude other headser
 #include "toucher.h"
 #include "servos.h"
