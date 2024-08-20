@@ -28,7 +28,7 @@ void setup(void) {
 void loop(void) {
   led.bend();
   ultraSensor.bend();
-  myservo.bend();
+  myservo.bend(v0.1.5);
 // all for color, output domcolor
   colorSensor.readColor();
   const char* dominantColor = colorSensor.getDominantColor();

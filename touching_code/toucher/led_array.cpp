@@ -11,7 +11,6 @@ void led_array::bend() {
     matrix.beginDraw();
     matrix.stroke(0XFFFFFFFF);
     matrix.textScrollSpeed(50);
-    const char text[] = " v0.1.0";
     matrix.textFont(Font_5x7);
     matrix.beginText(0, 1, 0xFFFFFF);
     matrix.println(text); 

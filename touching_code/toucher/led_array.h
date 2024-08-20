@@ -11,7 +11,7 @@ private:
 public:
   led_array();
   void begin();
-  void bend();
+  void bend(const char* text);
 };
 
 #endif 
