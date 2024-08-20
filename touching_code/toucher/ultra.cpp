@@ -1,6 +1,9 @@
 #include "ultra.h"
 
 // ultra class implementation
+
+ultra::ultra() : trigPin(-1), echoPin(-1) {}
+
 long ultra::measureDuration() {
     digitalWrite(trigPin, LOW);
     delayMicroseconds(2);
@@ -20,6 +23,8 @@ void ultra::begin() {
 }
 
 void ultra::bend() {
+  trigPin = trig;
+  echoPin = echo;
   long duration = measureDuration();
   int distance = calculateDistance(duration);
   Serial.print("distance: ");

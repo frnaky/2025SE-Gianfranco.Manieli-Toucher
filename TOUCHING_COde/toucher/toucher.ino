@@ -3,6 +3,8 @@
 
 //as of this comment 19/08, led and ultra and color are 100% working at all do not touch.
 
+//as of 20/08 i am touching led ultra and color haha
+
 // icnlude other headser
 #include "toucher.h"
 #include "servos.h"
@@ -26,9 +28,9 @@ void setup(void) {
 }
 
 void loop(void) {
-  led.bend();
-  ultraSensor.bend();
-  myservo.bend(v0.1.5);
+  led.bend("v0.1.5");
+  ultraSensor.bend(A0, A2);
+  myservo.bend();
 // all for color, output domcolor
   colorSensor.readColor();
   const char* dominantColor = colorSensor.getDominantColor();

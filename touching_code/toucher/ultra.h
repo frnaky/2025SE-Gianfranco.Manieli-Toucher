@@ -6,10 +6,10 @@ private:
     long measureDuration();
     int calculateDistance(long duration);
 public:
-    const int trigPin = A0;
-    const int echoPin = A2;
+    int trigPin
+    int echoPin
     void begin();
-    void bend();
+    void bend(int trigPin, int echoPin);
 };
 
 #endif
