@@ -17,14 +17,14 @@ int ultra::calculateDistance(long duration) {
   return duration * 0.034 / 2;
 }
 
-void ultra::begin() {
+void ultra::begin(int trig, int echo) {
+  trigPin = trig;
+  echoPin = echo;
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 }
 
 void ultra::bend() {
-  trigPin = trig;
-  echoPin = echo;
   long duration = measureDuration();
   int distance = calculateDistance(duration);
   Serial.print("distance: ");

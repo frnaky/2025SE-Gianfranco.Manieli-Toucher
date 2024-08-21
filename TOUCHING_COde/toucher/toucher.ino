@@ -5,40 +5,44 @@
 
 //as of 20/08 i am touching led ultra and color haha
 
+//21/08
+
 /* to do in class
-make sure led matrix works, and changing led.bend() changes led matrix
+make sure led matrix works, and changing led.bedn() changes led matrix
 make sure ultrasonic outputs proper distance, and chaning pins in ultraSensor.bend() works
-work on color sensor dominant code, have a look at gammatable
+work on color sensor dominant code, have a look at  gammatable
 servo
 */
 
 
 // icnlude other headser
 #include "toucher.h"
-#include "servos.h"
+//#include "servos.h"
 #include "led_array.h"
 #include "rcs.h"
 #include "ultra.h"
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 
-MyServo myservo;
+//MyServo myservo;
 domcolour colorSensor;
 led_array led;
 ultra ultraSensor;
 
+
+
 void setup(void) {
   Serial.begin(9600);
   led.begin();
-  ultraSensor.begin();
+  ultraSensor.begin(A0, A3);
   colorSensor.begin();
-  myservo.begin();
+  //myservo.begin();
 }
 
 void loop(void) {
-  led.bend("v0.1.5");
-  ultraSensor.bend(A0, A2);
-  myservo.bend();
+  led.bend("v0.1.7");
+  ultraSensor.bend();
+  //myservo.bend();
 // all for color, output domcolor
   colorSensor.readColor();
   const char* dominantColor = colorSensor.getDominantColor();

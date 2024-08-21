@@ -7,7 +7,7 @@ void led_array::begin() {
     matrix.begin();
 }
 
-void led_array::bend() {
+void led_array::bend(const char* text) {
     matrix.beginDraw();
     matrix.stroke(0XFFFFFFFF);
     matrix.textScrollSpeed(50);
