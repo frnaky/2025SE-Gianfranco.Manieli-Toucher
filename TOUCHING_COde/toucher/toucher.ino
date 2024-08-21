@@ -22,21 +22,26 @@ servo
 #include "rcs.h"
 #include "ultra.h"
 
-Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS394725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 
 //MyServo myservo;
-domcolour colorSensor;
+domcolour domcol;
 led_array led;
 ultra ultraSensor;
-
-
+tcs rgb;
 
 void setup(void) {
   Serial.begin(9600);
   led.begin();
   ultraSensor.begin(A0, A3);
-  colorSensor.begin();
+  rgb.begin();
+  domcol.begin();
   //myservo.begin();
+  //servo0.begin();
+  //servo1.begin();
+ // servo2.begin();
+  //servo3.begin();
+  //servo4.begin();
 }
 
 void loop(void) {
@@ -44,9 +49,10 @@ void loop(void) {
   ultraSensor.bend();
   //myservo.bend();
 // all for color, output domcolor
-  colorSensor.readColor();
-  const char* dominantColor = colorSensor.getDominantColor();
+  rgb.printColor();
+  //domcol.readColor();
+  //const char* dominantColor = domcol.getDominantColor();
 //use dominantColor for choosing color
-  Serial.println(dominantColor);
-  delay (100);
+  //Serial.println(dominantColor);
+  //delay (100);
 }

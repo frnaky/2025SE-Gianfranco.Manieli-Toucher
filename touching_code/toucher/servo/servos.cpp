@@ -4,8 +4,12 @@
 
 MyServo::MyServo() : pos(0) {}
 
-void MyServo::begin() {
-    servo.attach(5);  
+void MyServo::begin(int pin0, int pin1, int pin2, int pin3, int pin4) {
+    servo0.attach(pin0); 
+    servo1.attach(pin1);
+    servo2.attach(pin2);
+    servo3.attach(pin3);
+    servo4.attach(pin4); 
 }
 
 void MyServo::bend() {
@@ -18,7 +22,6 @@ void MyServo::bend() {
         delay(15);
     }
 }
-
 
 void servo0::begin(int servoPin) {
  myServo::begin(servoPin);
