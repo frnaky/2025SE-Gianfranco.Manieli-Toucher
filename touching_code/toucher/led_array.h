@@ -7,11 +7,12 @@
 class led_array {
 private:
   ArduinoLEDMatrix matrix;
-
+  const char* vernumber;
 public:
   led_array();
-  void begin();
-  void bend(const char* text);
+  void begin(const char* vernum);
+  void bend();
 };
 
 #endif 
+

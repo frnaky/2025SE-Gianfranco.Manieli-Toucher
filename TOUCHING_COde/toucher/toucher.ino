@@ -17,42 +17,62 @@ servo
 
 // icnlude other headser
 #include "toucher.h"
-//#include "servos.h"
+#include "servos.h"
 #include "led_array.h"
 #include "rcs.h"
 #include "ultra.h"
 
-Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS394725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 
-//MyServo myservo;
-domcolour domcol;
+domcolour colorSensor;
 led_array led;
 ultra ultraSensor;
-tcs rgb;
+MyServo myservo;
+
+Servo0 servo0;
+Servo1 servo1;
+Servo2 servo2;
+Servo3 servo3;
+Servo4 servo4;
+
 
 void setup(void) {
   Serial.begin(9600);
-  led.begin();
-  ultraSensor.begin(A0, A3);
-  rgb.begin();
-  domcol.begin();
-  //myservo.begin();
-  //servo0.begin();
-  //servo1.begin();
- // servo2.begin();
-  //servo3.begin();
-  //servo4.begin();
+//version number
+  led.begin("v0.2.0");
+//trig, echo pins
+  ultraSensor.begin(A0, A2);
+  colorSensor.begin();
+//pin numbers
+  servo0.begin(11);
+  servo1.begin(9);
+  servo2.begin(7);
+  servo3.begin(5);
+  servo4.begin(3);
 }
 
 void loop(void) {
-  led.bend("v0.1.7");
+//version number
+  led.bend();
   ultraSensor.bend();
-  //myservo.bend();
+  myservo.bend();
 // all for color, output domcolor
-  rgb.printColor();
-  //domcol.readColor();
-  //const char* dominantColor = domcol.getDominantColor();
+  colorSensor.readColor();
+  const char* dominantColor = colorSensor.getDominantColor();
 //use dominantColor for choosing color
-  //Serial.println(dominantColor);
-  //delay (100);
+  Serial.println(dominantColor);
+//servo!!
+  servo0.bend();
+  delay(1000);
+  
+  servo1.bend();
+  delay(1000);
+  
+  servo2.bend();
+  delay(1000);
+  
+  servo3.bend();
+  delay(1000);
+  
+  servo4.bend()
 }

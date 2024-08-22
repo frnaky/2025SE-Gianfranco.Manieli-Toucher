@@ -27,6 +27,6 @@ void ultra::begin(int trig, int echo) {
 void ultra::bend() {
   long duration = measureDuration();
   int distance = calculateDistance(duration);
-  Serial.print("distance: ");
+  //Serial.print("distance: ");
   Serial.println(distance);
 }
