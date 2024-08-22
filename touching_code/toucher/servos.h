@@ -6,37 +6,43 @@
 
 class MyServo {
 private:
-    int pos = 0;
+    int pos;
     Servo servo;
 public:
     MyServo();    
-    void begin();
+    void begin(int pin);
     void bend();
+    void setPosition(int angle);
 };
 
-class servo0 : public MyServo{ //100
-    public:
-    private:
+class Servo0 : public MyServo{ //100
+public:
+  void bend() override;
+private:
 };
 
-class servo1 : public MyServo{ //90
-    public:
-    private:
+class Servo1 : public MyServo{ //90
+public:
+  void bend() override;
+private:
 };
 
-class servo2 : public MyServo{ //20
-    public:
-    private:
+class Servo2 : public MyServo{ //20
+public:
+  void bend() override;
+private:
 };
 
-class servo3 : public MyServo{ //90
-    public:
-    private:
+class Servo3 : public MyServo{ //90
+public:
+  void bend() override;
+private:
 };
 
-class servo4 : public MyServo{ //30 open  80 close
-    public:
-    private:
+class Servo4 : public MyServo{ //30 open  80 close
+public:     
+  void bend() override;
+private:
 };
 
 

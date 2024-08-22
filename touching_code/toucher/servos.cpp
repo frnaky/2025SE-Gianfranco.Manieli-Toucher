@@ -13,14 +13,6 @@ void MyServo::begin(int pin0, int pin1, int pin2, int pin3, int pin4) {
 }
 
 void MyServo::bend() {
-    for (pos = 0; pos <= 180; pos += 1) {
-        servo.write(pos);
-        delay(15);
-    }
-    for (pos = 180; pos >= 0; pos -= 1) {
-        servo.write(pos);
-        delay(15);
-    }
 }
 
 void servo0::begin(int pin0) {
@@ -47,22 +39,22 @@ void servo4::begin(int pin4) {
 
 //loops
 void servo0::bend() {
- myServo::begin(pin0);
+  setPosition(90);
 }
 
-void servo1::begin() {
-  myServo::begin(pin1);
+void servo1::bend() {
+  setPosition(90);
 }
 
-void servo2::begin(int pin2) {
- myServo::begin(pin2);
+void servo2::bend(int pin2) {
+  setPosition(90);
 }
 
-void servo3::begin(int pin3) {
- myServo::begin(pin3);
+void servo3::bend(int pin3) {
+  setPosition(90);
 }
 
 //claw
-void servo4::begin(int pin4) {
- myServo::begin(pin4); 
+void servo4::bend(int pin4) {
+  setPosition(90);
 }
