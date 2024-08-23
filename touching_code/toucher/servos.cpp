@@ -5,11 +5,11 @@
 MyServo::MyServo() : pos(0) {}
 
 void MyServo::begin(int pin) {
-    servo0.attach(pin0); 
-    servo1.attach(pin1);
-    servo2.attach(pin2);
-    servo3.attach(pin3);
-    servo4.attach(pin4); 
+    Servo0.attach(pin0); 
+    Servo1.attach(pin1);
+    Servo2.attach(pin2);
+    Servo3.attach(pin3);
+    Servo4.attach(pin4); 
 }
 
 void MyServo::bend() {
@@ -49,17 +49,17 @@ void Servo4::close() {
 }
 
 void controller::begin(int pin0, int pin1, int pin2, int pin3, int pin4) {
-    servo0.begin(pin0);
-    servo1.begin(pin1);
-    servo2.begin(pin2);
-    servo3.begin(pin3);
-    servo4.begin(pin4);
+    Servo0.begin(pin0);
+    Servo1.begin(pin1);
+    Servo2.begin(pin2);
+    Servo3.begin(pin3);
+    Servo4.begin(pin4);
 }
 
 void controller::bend() {
-    servo0.bend();
-    servo1.bend();
-    servo2.bend();
-    servo3.bend();
-    servo4.bend();
+    Servo0.bend();
+    Servo1.bend();
+    Servo2.bend();
+    Servo3.bend();
+    Servo4.bend();
 }

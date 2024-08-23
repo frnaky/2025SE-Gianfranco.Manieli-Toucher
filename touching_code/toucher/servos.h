@@ -42,8 +42,8 @@ private:
 class Servo4 : public MyServo{ //30 open  80 close
 public:     
   void bend() override;
-  open();
-  close();
+  void open();
+  void close();
 private:
 };
 

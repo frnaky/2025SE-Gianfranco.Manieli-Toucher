@@ -74,5 +74,5 @@ void loop(void) {
   servo3.bend();
   delay(1000);
   
-  servo4.bend()
+  servo4.bend();
 }
