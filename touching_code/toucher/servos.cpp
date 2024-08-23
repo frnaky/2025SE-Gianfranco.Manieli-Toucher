@@ -60,18 +60,68 @@ void Controller::bend() {
     servo4.open();
 }
 
+void Controller::redGrab() {
+    servo0.setPosition();
+    servo1.setPosition();
+    servo2.setPosition();
+    servo3.setPosition();
+    servo4.setPosition(30);
+}
+
+void Controller::greenGrab() {
+    servo0.setPosition();
+    servo1.setPosition();
+    servo2.setPosition();
+    servo3.setPosition();
+    servo4.setPosition(30);
+}
+
+void Controller::blueGrab() {
+    servo0.setPosition();
+    servo1.setPosition();
+    servo2.setPosition();
+    servo3.setPosition();
+    servo4.setPosition(30);
+}
+
+void Controller::redPlace() {
+    servo0.setPosition();
+    servo1.setPosition();
+    servo2.setPosition();
+    servo3.setPosition();
+    servo4.setPosition(30);
+}
+
+void Controller::greenPlace() {
+    servo0.setPosition();
+    servo1.setPosition();
+    servo2.setPosition();
+    servo3.setPosition();
+    servo4.setPosition(30);
+}
+
+void Controller::bluePlace() {
+    servo0.setPosition();
+    servo1.setPosition();
+    servo2.setPosition();
+    servo3.setPosition();
+    servo4.setPosition(30);
+}
+
 void Controller::movement(const char* color) {
-    if (strcmp(color, "Red") == 0) {
-        servo4.setPosition(30);  // Example position for Red
-    } else if (strcmp(color, "Green") == 0) {
-        servo4.setPosition(60);  // Example position for Green
-    } else if (strcmp(color, "Blue") == 0) {
-        servo4.setPosition(90);  // Example position for Blue
-    } else if (strcmp(color, "Yellow") == 0) {
-        servo4.setPosition(120);  // Example position for Yellow
+    if (strcmp(color, "red") == 0) {
+        controller.bend();
+        delay
+        controller.redGrab();
+    } else if (strcmp(color, "green") == 0) {
+        controller.bend();
+        controller.greenGrab();
+    } else if (strcmp(color, "blue") == 0) {
+        controller.bend();
+        controller.blueGrab();
     } else {
-        // Default position if color is not recognized
-        servo4.setPosition(90);
+        // defauly pos
+        controller.bend();
     }
 }
 

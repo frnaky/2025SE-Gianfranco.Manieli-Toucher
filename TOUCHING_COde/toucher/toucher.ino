@@ -50,8 +50,11 @@ void loop(void) {
   //const char* dominantColor = colorSensor.getDominantColor();
   //use dominantColor for choosing color
   //Serial.println(dominantColor);
+
   //servo!!
+  //bend is default pos
   controller.bend();
+  
   //controller.movement(dominantColor);
   delay(2000);
 }
