@@ -39,8 +39,7 @@ public:
 class Servo4 : public MyServo {
 public:
     void bend() override;
-    void open();
-    void close();
+    void grab();
 };
 
 class Controller {
@@ -54,6 +53,11 @@ public:
     void begin(int pin0, int pin1, int pin2, int pin3, int pin4);
     void bend();
     void movement(const char* color);
+    void grab();
+    void greenPlace();
+    void redPlace();
+    void bluePlace();
+
 };
 
 #endif

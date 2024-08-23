@@ -21,7 +21,7 @@ protected:
 //dominant color!!!! 
 class domcolour : public rcs {
   public:
-    domcolour(int threshold = 100);
+    domcolour(int threshold = 160);
     const char* getDominantColor();
   
   private:

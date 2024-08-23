@@ -33,7 +33,7 @@ void Servo3::bend() {
 }
 
 void Servo4::bend() {
-    setPosition(90);
+    setPosition(30);
 }
 
 void Servo4::open() {
@@ -60,68 +60,54 @@ void Controller::bend() {
     servo4.open();
 }
 
-void Controller::redGrab() {
-    servo0.setPosition();
-    servo1.setPosition();
-    servo2.setPosition();
-    servo3.setPosition();
-    servo4.setPosition(30);
-}
-
-void Controller::greenGrab() {
-    servo0.setPosition();
-    servo1.setPosition();
-    servo2.setPosition();
-    servo3.setPosition();
-    servo4.setPosition(30);
-}
-
-void Controller::blueGrab() {
-    servo0.setPosition();
-    servo1.setPosition();
-    servo2.setPosition();
-    servo3.setPosition();
-    servo4.setPosition(30);
+void Controller::grab() {
+    servo4.setPosition(20); //open
+    delay(500);
+    servo4.setPosition(80);
+    delay(100);
 }
 
 void Controller::redPlace() {
-    servo0.setPosition();
-    servo1.setPosition();
-    servo2.setPosition();
-    servo3.setPosition();
-    servo4.setPosition(30);
+    servo0.setPosition(150);
+    delay(50);
+    servo1.setPosition(120);
+    delay(50);
+    servo2.setPosition(90);
+    delay(50);
+    servo3.setPosition(60);
+    controller.grab();
+    delay(50);
 }
 
 void Controller::greenPlace() {
-    servo0.setPosition();
-    servo1.setPosition();
-    servo2.setPosition();
-    servo3.setPosition();
+    servo0.setPosition(150);
+    servo1.setPosition(120);
+    servo2.setPosition(90);
+    servo3.setPosition(60);
     servo4.setPosition(30);
 }
 
 void Controller::bluePlace() {
-    servo0.setPosition();
-    servo1.setPosition();
-    servo2.setPosition();
-    servo3.setPosition();
+    servo0.setPosition(150);
+    servo1.setPosition(120);
+    servo2.setPosition(90);
+    servo3.setPosition(60);
     servo4.setPosition(30);
 }
 
 void Controller::movement(const char* color) {
     if (strcmp(color, "red") == 0) {
-        controller.bend();
-        delay
-        controller.redGrab();
+        this->redPlace();
+        this->grab();
     } else if (strcmp(color, "green") == 0) {
-        controller.bend();
-        controller.greenGrab();
+        this->greenPlace();
+        this->grab();
     } else if (strcmp(color, "blue") == 0) {
-        controller.bend();
-        controller.blueGrab();
+        this->bluePlace();
+        this->grab();
     } else {
-        // defauly pos
-        controller.bend();
+        // default pos
+        this->bend();
     }
 }
 

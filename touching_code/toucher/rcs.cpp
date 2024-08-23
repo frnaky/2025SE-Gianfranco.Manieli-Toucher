@@ -8,7 +8,6 @@ void rcs::begin() {
     Serial.println("rgb color sensor working");
   } else {
     Serial.println("rgb color sensor not found");
-    while (1);
   }
 }
 
