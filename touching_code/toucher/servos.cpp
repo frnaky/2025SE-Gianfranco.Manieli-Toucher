@@ -45,11 +45,11 @@ void Servo4::close() {
 }
 
 void Controller::begin(int pin0, int pin1, int pin2, int pin3, int pin4) {
-    servo0.begin(pin0);
-    servo1.begin(pin1);
-    servo2.begin(pin2);
-    servo3.begin(pin3);
-    servo4.begin(pin4);
+    servo0.MyServo::begin(pin0);
+    servo1.MyServo::begin(pin1);
+    servo2.MyServo::begin(pin2);
+    servo3.MyServo::begin(pin3);
+    servo4.MyServo::begin(pin4);
 }
 
 void Controller::bend() {
@@ -57,7 +57,7 @@ void Controller::bend() {
     servo1.bend();
     servo2.bend();
     servo3.bend();
-    servo4.bend();
+    servo4.open();
 }
 
 void Controller::movement(const char* color) {
