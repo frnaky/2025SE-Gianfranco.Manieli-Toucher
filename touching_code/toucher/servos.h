@@ -10,8 +10,8 @@ private:
     Servo servo;
 public:
     MyServo();    
-    void begin(int pin);
-    void bend();
+    virtual void begin(int pin);
+    virtual void bend();
     void setPosition(int angle);
 };
 
@@ -42,7 +42,21 @@ private:
 class Servo4 : public MyServo{ //30 open  80 close
 public:     
   void bend() override;
+  open();
+  close();
 private:
+};
+
+class controller {
+private:
+    Servo0 servo0;
+    Servo1 servo1;
+    Servo2 servo2;
+    Servo3 servo3;
+    Servo4 servo4;
+public:
+    void begin(int pin0, int pin1, int pin2, int pin3, int pin4);
+    void bend();
 };
 
 
