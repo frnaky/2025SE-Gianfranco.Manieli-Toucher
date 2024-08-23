@@ -58,7 +58,9 @@ void loop(void) {
   //use dominantColor for choosing color
   Serial.println(dominantColor);
   //servo!!
-  controller.bend();
-  //controller.movement(dominantColor);
+  //controller.bend();
+  controller.movement(dominantColor);
   delay(5000);  // Wait for 5 seconds before repeating
 }
+
+

@@ -30,18 +30,3 @@ void ultra::bend() {
   //Serial.print("distance: ");
   Serial.println(distance);
 }
-
-void Controller::movement(const char* color) {
-    if (strcmp(color, "Red") == 0) {
-        servo4.setPosition(/* Red position */);
-    } else if (strcmp(color, "Green") == 0) {
-        servo4.setPosition(/* Green position */);
-    } else if (strcmp(color, "Blue") == 0) {
-        servo4.setPosition(/* Blue position */);
-    } else if (strcmp(color, "Yellow") == 0) {
-        servo4.setPosition(/* Yellow position */);
-    } else {
-        // Default position if color is not recognized
-        servo4.setPosition(90);
-    }
-}

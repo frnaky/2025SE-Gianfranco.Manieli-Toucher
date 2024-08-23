@@ -59,3 +59,19 @@ void Controller::bend() {
     servo3.bend();
     servo4.bend();
 }
+
+void Controller::movement(const char* color) {
+    if (strcmp(color, "Red") == 0) {
+        servo4.setPosition(30);  // Example position for Red
+    } else if (strcmp(color, "Green") == 0) {
+        servo4.setPosition(60);  // Example position for Green
+    } else if (strcmp(color, "Blue") == 0) {
+        servo4.setPosition(90);  // Example position for Blue
+    } else if (strcmp(color, "Yellow") == 0) {
+        servo4.setPosition(120);  // Example position for Yellow
+    } else {
+        // Default position if color is not recognized
+        servo4.setPosition(90);
+    }
+}
+
