@@ -5,18 +5,14 @@
 MyServo::MyServo() : pos(0) {}
 
 void MyServo::begin(int pin) {
-    Servo0.attach(pin0); 
-    Servo1.attach(pin1);
-    Servo2.attach(pin2);
-    Servo3.attach(pin3);
-    Servo4.attach(pin4); 
+    servo.attach(pin);
 }
 
 void MyServo::bend() {
 }
 
 void MyServo::setPosition(int angle) {
-    pos = angle;
+    pos = constrain(angle, 0, 180);
     servo.write(pos);
 }
 
