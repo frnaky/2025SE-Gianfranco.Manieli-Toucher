@@ -4,50 +4,46 @@
 #include <Arduino.h>
 #include <Servo.h>
 
+
 class MyServo {
-private:
-    int pos;
+protected:
     Servo servo;
+    int pos;
 public:
-    MyServo();    
+    MyServo();
     virtual void begin(int pin);
     virtual void bend();
     void setPosition(int angle);
 };
 
-class Servo0 : public MyServo{ //100
+class Servo0 : public MyServo {
 public:
-  void bend() override;
-private:
+    void bend() override;
 };
 
-class Servo1 : public MyServo{ //90
+class Servo1 : public MyServo {
 public:
-  void bend() override;
-private:
+    void bend() override;
 };
 
-class Servo2 : public MyServo{ //20
+class Servo2 : public MyServo {
 public:
-  void bend() override;
-private:
+    void bend() override;
 };
 
-class Servo3 : public MyServo{ //90
+class Servo3 : public MyServo {
 public:
-  void bend() override;
-private:
+    void bend() override;
 };
 
-class Servo4 : public MyServo{ //30 open  80 close
-public:     
-  void bend() override;
-  void open();
-  void close();
-private:
+class Servo4 : public MyServo {
+public:
+    void bend() override;
+    void open();
+    void close();
 };
 
-class controller {
+class Controller {
 private:
     Servo0 servo0;
     Servo1 servo1;
@@ -59,7 +55,6 @@ public:
     void bend();
 };
 
-
-
 #endif
+
 
