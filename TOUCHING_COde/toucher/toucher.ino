@@ -59,5 +59,6 @@ void loop(void) {
   Serial.println(dominantColor);
   //servo!!
   controller.bend();
+  //controller.movement(dominantColor);
   delay(5000);  // Wait for 5 seconds before repeating
 }

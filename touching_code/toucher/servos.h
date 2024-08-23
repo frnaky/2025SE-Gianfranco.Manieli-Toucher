@@ -53,6 +53,7 @@ private:
 public:
     void begin(int pin0, int pin1, int pin2, int pin3, int pin4);
     void bend();
+    void movement();
 };
 
 #endif
