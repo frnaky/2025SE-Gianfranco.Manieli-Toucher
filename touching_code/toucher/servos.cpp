@@ -57,53 +57,74 @@ void Controller::bend() {
     servo1.bend();
     servo2.bend();
     servo3.bend();
-    servo4.open();
+    servo4.grab();
 }
 
 void Controller::grab() {
+    servo0.setPosition(100);
+    servo1.setPosition(135);
+    servo2.setPosition(135);
+    servo3.setPosition(135);
     servo4.setPosition(20); //open
     delay(500);
-    servo4.setPosition(80);
+    servo4.setPosition(80); //close
     delay(100);
 }
 
 void Controller::redPlace() {
     servo0.setPosition(150);
     delay(50);
-    servo1.setPosition(120);
+    servo1.setPosition(90);
     delay(50);
-    servo2.setPosition(90);
+    servo2.setPosition(20);
     delay(50);
-    servo3.setPosition(60);
-    controller.grab();
+    servo3.setPosition(90);
+    delay(50);
+    servo4.open();
     delay(50);
 }
 
 void Controller::greenPlace() {
     servo0.setPosition(150);
-    servo1.setPosition(120);
-    servo2.setPosition(90);
-    servo3.setPosition(60);
-    servo4.setPosition(30);
+    delay(50);
+    servo1.setPosition(90);
+    delay(50);
+    servo2.setPosition(20);
+    delay(50);
+    servo3.setPosition(90);
+    delay(50);
+    servo4.open();
+    delay(50);
 }
 
 void Controller::bluePlace() {
     servo0.setPosition(150);
-    servo1.setPosition(120);
-    servo2.setPosition(90);
-    servo3.setPosition(60);
-    servo4.setPosition(30);
+    delay(50);
+    servo1.setPosition(90);
+    delay(50);
+    servo2.setPosition(20);
+    delay(50);
+    servo3.setPosition(90);
+    delay(50);
+    servo4.open();
+    delay(50);
 }
 
 void Controller::movement(const char* color) {
+    this->bend();
+
     if (strcmp(color, "red") == 0) {
+
         this->redPlace();
+        delay(100);
         this->grab();
     } else if (strcmp(color, "green") == 0) {
         this->greenPlace();
+        delay(100);
         this->grab();
     } else if (strcmp(color, "blue") == 0) {
         this->bluePlace();
+        delay(100);
         this->grab();
     } else {
         // default pos
