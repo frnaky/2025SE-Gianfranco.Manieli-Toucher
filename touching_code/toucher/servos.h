@@ -39,6 +39,8 @@ public:
 class Servo4 : public MyServo {
 public:
     void bend() override;
+    void open();
+    void close();
     void grab();
 };
 
